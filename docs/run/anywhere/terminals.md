@@ -3,7 +3,7 @@
 Installing with [`brew`] is most straight forward:
 
 ```sh
-brew install teaxyz/pkgs/tea-cli
+brew install teaxyz/pkgs/pkgx-cli
 ```
 
 # Other Ways to Install
@@ -11,7 +11,7 @@ brew install teaxyz/pkgs/tea-cli
 1. After `brew` our installer is easiest:
 
 ```sh
-curl -fsS https://tea.xyz | sh
+curl -fsS https://pkgx.xyz | sh
 ```
 
 {% hint style='info' %}
@@ -20,23 +20,23 @@ Wanna read that script before you run it? [github.com/teaxyz/setup/installer.sh]
 
 &nbsp;
 
-2. `tea` is a standalone binary, so (if you want) you can just download it directly:
+2. `pkgx` is a standalone binary, so (if you want) you can just download it directly:
 
 ```sh
-# download it to `./tea`
-curl -o ./tea --compressed -f --proto '=https' https://tea.xyz/$(uname)/$(uname -m)
+# download it to `./pkgx`
+curl -o ./pkgx --compressed -f --proto '=https' https://pkgx.xyz/$(uname)/$(uname -m)
 
-# install it to `/usr/local/bin/tea`
-sudo install -m 755 tea /usr/local/bin
+# install it to `/usr/local/bin/pkgx`
+sudo install -m 755 pkgx /usr/local/bin
 
 # check it works
-tea --help
+pkgx --help
 ```
 
 For your convenience we provide a `.tgz` so you can one-liner that:
 
 ```sh
-curl -Ssf https://tea.xyz/$(uname)/$(uname -m).tgz | sudo tar xz -C /usr/local/bin
+curl -Ssf https://pkgx.xyz/$(uname)/$(uname -m).tgz | sudo tar xz -C /usr/local/bin
 ```
 
 &nbsp;

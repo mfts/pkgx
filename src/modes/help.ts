@@ -11,13 +11,13 @@ export default function(verbosity = 0) {
 
       examples:
   05    $ tea node@18 --eval 'console.log("tea.xyz")'
-        $ tea +bun        # https://docs.tea.xyz/shell-integration
+        $ tea +bun        # https://docs.pkgx.sh/shell-integration
         $ tea +openssl cargo build
         $ tea@latest npx@latest cowsay@latest 'fancy a cuppa?'
 
   10  more:
         $ tea --help --verbose
-        $ open https://docs.tea.xyz
+        $ open https://docs.pkgx.sh
       `.replaceAll('$', dim('$')).replaceAll(/#.*/g, dim)
   } else {
     //        10|       20|       30|       40|       50|       60|       70| |     80|

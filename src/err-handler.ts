@@ -32,7 +32,7 @@ export default function(err: Error) {
   } else if (err instanceof ProvidesError) {
     render('nothing provides:', err.arg0, [
       ['we haven’t pkgd this yet. %ccan you?', 'font-weight: bold']
-    ], 'https://docs.tea.xyz/pantry')
+    ], 'https://docs.pkgx.sh/pantry')
   } else if (err instanceof ProgrammerError) {
     render('programmer error', undefined, [['this is a bug, please report it']], 'https://github.com/teaxyz/cli/issues/new')
   } else if (err instanceof TeaError) {

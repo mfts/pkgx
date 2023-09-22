@@ -26,7 +26,7 @@ export class ProvidesError extends TeaError {
     super(undent`
       # nothing provides \`${arg0}\`
 
-      > we haven’t pkgd this yet, can you add it to the pantry? [docs.tea.xyz/pantry]
+      > we haven’t pkgd this yet, can you add it to the pantry? [docs.pkgx.sh/pantry]
       `)
 
     this.arg0 = arg0

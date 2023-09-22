@@ -1,4 +1,4 @@
-# `tea` & CI/CD
+# `pkgx` & CI/CD
 
 ## GitHub Actions
 
@@ -6,7 +6,7 @@
 
 ```sh
 - uses: teaxyz/setup@v1
-- run: tea go@1.20 build
+- run: pkgx go@1.20 build
 ```
 
 `go build` will execute using go version ^1.20.
@@ -36,22 +36,22 @@ The developer environment for your project will be available during the job.
 ## Other CI/CD Providers
 
 ```sh
-eval "$(curl https://tea.xyz)"
+eval "$(curl https://pkgx.xyz)"
 ```
 
-`tea` will be installed and integrated. Use as per general terminal
+`pkgx` will be installed and integrated. Use as per general terminal
 guidelines, eg:
 
 ```sh
-tea +node@16
+pkgx +node@16
 ```
 
 {% hint style="info" %}
-`tea` can make it easy to use the GNU or BSD versions of core utilities
+`pkgx` can make it easy to use the GNU or BSD versions of core utilities
 across platforms.
 
 ```sh
-tea +gnu.org/coreutils ls
+pkgx +gnu.org/coreutils ls
 ```
 
 {% endhint %}

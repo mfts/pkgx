@@ -11,7 +11,6 @@ redirects:
   ci-cd: run/anywhere/ci-cd.md
   scripts: run/anywhere/scripts.md
   editors: run/anywhere/editors.md
-  tea-install: tea-install.md
+  pkgx-install: pkgx-install.md
   support: support.md
-  getting-started/install-tea/without-installer: run/anywhere/terminals.md
   dev: dev.md

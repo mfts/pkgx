@@ -11,34 +11,23 @@ setColorEnabled(clicolor())
 ///////////////////////////////////////////////////////// backwards compatability
 const argstr = Deno.args.join(' ')
 
-if (/--hook(=[a-z]+)?/.test(argstr) || argstr == '--env --keep-going --silent --dry-run=w/trace' || argstr == '-Eds' || argstr == "+tea.xyz/magic -Esk --chaste env") {
-  perror('deprecated', 'tea magic', [
-    ['type `tea integrate --dry-run` to use our new integrations']
-  ], 'https://help.tea.xyz/v0-migration-guide')
+if (/--hook(=[a-z]+)?/.test(argstr) || argstr == '--env --keep-going --silent --dry-run=w/trace' || argstr == '-Eds' || argstr.endsWith("/magic -Esk --chaste env")) {
+  perror('deprecated', 'magic', [
+    ['type `pkgx integrate --dry-run` to use our new integrations']
+  ], 'https://blog.pkgx.sh/v1')
 }
-if (parseInt(Deno.env.get("TEA_LVL")!) >= 10) {
-  perror('fatal', 'TEA_LVL >= 10', [], 'https://help.tea.xyz/TEA_LVL')
+if (parseInt(Deno.env.get("PKGX_LVL")!) >= 10) {
+  perror('fatal', 'PKGX_LVL >= 10', [], 'https://github.com/orgs/pkgxdev/discussions/11')
   Deno.exit(2)
 }
-if (Deno.env.get("TEA_PREFIX")) {
-  if (Deno.env.get("TEA_DIR")) {
-    perror('fatal', 'TEA_PREFIX has been renamed TEA_DIR', [
-      ['both are set so there is no mitigation strategy']
-    ], 'https://help.tea.xyz/v0-migration-guide')
-    Deno.exit(3)
-  }
-
-  console.error("%cdeprecated: %cTEA_PREFIX has been renamed TEA_DIR, migrate before v1.0.0+gold", 'color: red', 'color: initial')
-  Deno.env.set("TEA_DIR", Deno.env.get("TEA_PREFIX")!)
-}
 if (argstr == '--prefix') {
-  console.error("%cdeprecated: %cuse ${TEA_DIR:-$HOME/.tea} instead", 'color: red', 'color: initial')
-  console.log(Deno.env.get("TEA_DIR") || Deno.env.get("HOME") + "/.tea")
+  console.error("%cdeprecated: %cuse ${PKGX_DIR:-$HOME/.pkgx} instead", 'color: red', 'color: initial')
+  console.log(Deno.env.get("PKGX_DIR") || Deno.env.get("HOME") + "/.pkgx")
   Deno.exit(0)
 }
 if (argstr == 'install' || argstr == 'unload') {
-  console.error('tea: error: shellcode not loaded')
-  console.error('tea: ^^run: eval "$(tea integrate)"')
+  console.error('pkgx: error: shellcode not loaded')
+  console.error('pkgx: ^^run: eval "$(pkgx integrate)"')
   Deno.exit(1)
 }
 
@@ -80,7 +69,7 @@ try {
 /////////////////////////////////////////////////////////////////////////// utils
 function logger_prefix() {
   if (Deno.env.get("CI") || !Deno.isatty(Deno.stdin.rid)) {
-    return 'tea'
+    return 'pkgx'
   }
 }
 
@@ -105,7 +94,7 @@ function clicolor() {
   }
   if (env.CI) {
     // this is what charm’s lipgloss does, we copy their lead
-    // however surely nobody wants `tea foo > bar` to contain color codes?
+    // however surely nobody wants `pkgx foo > bar` to contain color codes?
     // the thing is otherwise we have no color in CI since it is not a TTY
     //TODO probs should check the value of some of the TERM vars
     return true

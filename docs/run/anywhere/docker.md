@@ -1,10 +1,10 @@
-# `tea` & Docker
+# `pkgx` & Docker
 
-We provide an image based on Debian Buster (slim) preloaded with `tea`:
+We provide an image based on Debian Buster (slim) preloaded with `pkgx`:
 
 ```sh
 $ docker run -it teaxyz/cli
-$ tea +node@16
+$ pkgx +node@16
 $ npm start
 ```
 
@@ -12,21 +12,21 @@ You can use this as a base:
 
 ```Dockerfile
 FROM teaxyz/cli
-RUN tea +node@16
+RUN pkgx +node@16
 RUN npm start
 ```
 
-Or if you want to use `tea` in another image:
+Or if you want to use `pkgx` in another image:
 
 ```Dockerfile
 FROM archlinux
-RUN eval "$(curl -Ssf --proto '=https' https://tea.xyz)"
-RUN tea +node@16
+RUN eval "$(curl -Ssf --proto '=https' https://pkgx.xyz)"
+RUN pkgx +node@16
 RUN npm start
 ```
 
-`eval`ing our one-liner also integrates `tea` with the container’s shell.
-If you don’t want that you can `curl -Ssf tea.xyz | sh` instead.
+`eval`ing our one-liner also integrates `pkgx` with the container’s shell.
+If you don’t want that you can `curl -Ssf pkgx.xyz | sh` instead.
 
 
 {% hint style="success" %}

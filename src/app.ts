@@ -97,7 +97,7 @@ export default async function({ flags, ...opts }: Args, logger_prefix?: string) 
         [`  eval "$(tea integrate)"   ${dim('# run this first')}`],
         [],
       ],
-      help: 'https://docs.tea.xyz/shell-integration'
+      help: 'https://docs.pkgx.sh/shell-integration'
     })
   } break
   case 'version':

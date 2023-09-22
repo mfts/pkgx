@@ -21,7 +21,7 @@ export default async function(op: 'install' | 'uninstall', { dryrun }: { dryrun:
     try {
       let pos = 0
       for await (const readline of readLines(fd)) {
-        if (readline.trim().endsWith('#docs.tea.xyz/shellcode')) {
+        if (readline.trim().endsWith('#docs.pkgx.sh/shellcode')) {
           if (op == 'install') {
             _internals.stderr("hook already integrated:", file)
             continue here
@@ -56,7 +56,7 @@ export default async function(op: 'install' | 'uninstall', { dryrun }: { dryrun:
             pos -= 1
           }
 
-          if (!dryrun) await writeAll(fd, encode(`\n\n${line}  #docs.tea.xyz/shellcode\n`))
+          if (!dryrun) await writeAll(fd, encode(`\n\n${line}  #docs.pkgx.sh/shellcode\n`))
         }
         opd_at_least_once = true
         _internals.stderr(`${file} << \`${line}\``)
@@ -72,7 +72,7 @@ export default async function(op: 'install' | 'uninstall', { dryrun }: { dryrun:
       title: 'this was a dry-run',
       subtitle: 'to actually perform the above, run:',
       body: [[],[`  ${instruction}`],[]],
-      help: 'https://docs.tea.xyz/shell-integration'
+      help: 'https://docs.pkgx.sh/shell-integration'
     })
   } else switch (op) {
   case 'uninstall':
